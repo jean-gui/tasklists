@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<div class="container py-md-3">
+    {% block breadcrumbs %}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="{{ path('app_task_list_index') }}">Home</a></li>
+            </ol>
+        </nav>
+    {% endblock %}
+    <main>
+        {% block main_title %}
+            <h1 class="mb-md-4">{{ block('title') }}</h1>
+        {% endblock %}
+        {% block body %}{% endblock %}
+    </main>
+</div>
+</body>
+</html>

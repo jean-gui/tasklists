@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
+
+.form-control {
+  border: 0;
+}
+
+h1 input.form-control {
+  font: inherit;
+  padding: inherit;
+}

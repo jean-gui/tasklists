@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block breadcrumbs %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('app_task_list_index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a
+                        href="{{ path('app_task_list_show', {id: task_list.id}) }}">{{ task_list }}</a></li>
+            <li class="breadcrumb-item active"><a
+                        href="{{ path('app_task_list_edit', {id: task_list.id}) }}">Edit</a></li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block title %}Edit {{ task_list }}{% endblock %}
+{% block main_title %}{% endblock %}
+{% block body %}
+    {{ component('task_list_type', { 'taskList': task_list.id ? task_list : null, 'form': form }) }}
+
+    {% if task_list.id %}
+        {{ include('task_list/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

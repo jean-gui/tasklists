@@ -1,0 +1,26 @@
+{% form_theme form _self %}
+
+<div
+        {{ attributes }}
+>
+    {{ form_start(form) }}
+    <h1 class="mb-md-4">
+        {{ form_row(form.name, {label_attr: {class: 'visually-hidden'}}) }}
+    </h1>
+
+    {% for key, taskForm in form.tasks %}
+        <div class="row mb-3 align-items-center">
+            <div class="col-10{{ taskForm.vars.data.done ? ' text-decoration-line-through' : '' }}">
+                {{ form_row(taskForm.content, {row_attr: {class: 'mb-0'}, label_attr: {class:'visually-hidden'}}) }}
+            </div>
+            <div class="col-1">
+                {{ form_row(taskForm.vars.button_delete, {row_attr: {class: 'mb-0'}, label: 'X', attr: { class: 'btn btn-outline-danger' } }) }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {{ form_widget(form.tasks.vars.button_add, { label: '+ Add Item', attr: { class: 'btn btn-outline-primary' } }) }}
+
+    <button type="submit" class="btn btn-success" formnovalidate>Save</button>
+    {{ form_end(form) }}
+</div>
