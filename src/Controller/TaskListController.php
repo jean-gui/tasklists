@@ -57,7 +57,7 @@ class TaskListController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $taskListRepository->save($taskList, true);
 
-            return $this->redirectToRoute('app_task_list_edit', ['id' => $taskList->getId()]);
+            return $this->redirectToRoute('app_task_list_show', ['id' => $taskList->getId()]);
         }
 
         return $this->render('task_list/edit.html.twig', [
