@@ -16,8 +16,4 @@
 {% block main_title %}{% endblock %}
 {% block body %}
     {{ component('task_list_type', { 'taskList': task_list.id ? task_list : null, 'form': form }) }}
-
-    {% if task_list.id %}
-        {{ include('task_list/_delete_form.html.twig') }}
-    {% endif %}
 {% endblock %}

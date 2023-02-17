@@ -7,7 +7,7 @@
     <h1 class="mb-md-4">
         {{ form_row(form.name, {label_attr: {class: 'visually-hidden'}}) }}
     </h1>
-
+    {{ form_row(form.tasks) }}
     {% for key, taskForm in form.tasks %}
         <div class="row mb-3 align-items-center">
             <div class="col-10{{ taskForm.vars.data.done ? ' text-decoration-line-through' : '' }}">
@@ -22,5 +22,16 @@
     {{ form_widget(form.tasks.vars.button_add, { label: '+ Add Item', attr: { class: 'btn btn-outline-primary' } }) }}
 
     <button type="submit" class="btn btn-success" formnovalidate>Save</button>
+    {% if taskList and taskList.id %}
+        <button class="btn btn-danger" form="delete_form">Delete</button>
+    {% endif %}
     {{ form_end(form) }}
+    {% if taskList and taskList.id %}
+        <form method="post" id="delete_form" action="{{ path('app_task_list_delete', {'id': taskList.id}) }}"
+              onsubmit="return confirm('Are you sure you want to delete this item?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ taskList.id) }}">
+
+        </form>
+
+    {% endif %}
 </div>
