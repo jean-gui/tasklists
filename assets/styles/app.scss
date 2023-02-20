@@ -1,10 +1,31 @@
-@import "~bootstrap/scss/bootstrap";
+@import "~@picocss/pico/scss/pico";
 
-.form-control {
-  border: 0;
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-h1 input.form-control {
-  font: inherit;
+form.task-form button {
+  text-align: start;
+}
+
+h1 input#task_list_name {
+  font-size: inherit;
+  border: inherit;
   padding: inherit;
+  color: inherit;
+}
+
+.grid.tasks-grid {
+  grid-template-columns: 1.9fr 0.1fr;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
 }
