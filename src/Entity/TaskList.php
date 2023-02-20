@@ -23,6 +23,7 @@ class TaskList
 
     #[ORM\OneToMany(mappedBy: 'list', targetEntity: Task::class, cascade: ['persist'], orphanRemoval: true)]
     #[ORM\OrderBy(["done" => "ASC", "id" => "ASC"])]
+    #[Assert\Valid]
     private Collection $tasks;
 
     public function __construct()
