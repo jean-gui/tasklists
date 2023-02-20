@@ -16,6 +16,7 @@ class Task
     private ?int $id = null;
 
     #[ORM\Column(length: 1000)]
+    #[Assert\NotBlank]
     #[Assert\Length(max: 1000)]
     private ?string $content = null;
 
