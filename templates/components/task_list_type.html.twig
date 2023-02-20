@@ -10,7 +10,7 @@
 
     {% for key, taskForm in form.tasks %}
         <div class="tasks-grid grid">
-            {{ form_row(taskForm.content, {label_attr: {class:'visually-hidden'}}) }}
+            {{ form_row(taskForm.content, {label_attr: {class:'visually-hidden'}, attr: {class: taskForm.vars.data.done ? 'done' : ''}}) }}
             {{ form_row(taskForm.vars.button_delete, {
                 attr: {class: 'btn-danger'},
                 label: '<span class="fa-solid fa-trash" aria-hidden="true"></span><span class="visually-hidden">Delete</span>',
