@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,20 +17,28 @@
     <link rel="icon" href="/favicon.svg">
 </head>
 <body>
-<div class="container py-md-3">
+
+<div class="container">
+<nav class="main-nav">
+    <ul>
+        <li><strong>Task list manager</strong></li>
+    </ul>
+    {% block main_nav_items %}{% endblock %}
+</nav>
+
+<main>
     {% block breadcrumbs %}
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="{{ path('app_task_list_index') }}">Home</a></li>
-            </ol>
+            <ul>
+                <li><a href="{{ path('app_task_list_index') }}">Home</a></li>
+            </ul>
         </nav>
     {% endblock %}
-    <main>
-        {% block main_title %}
-            <h1 class="mb-md-4">{{ block('title') }}</h1>
-        {% endblock %}
-        {% block body %}{% endblock %}
-    </main>
+    {% block main_title %}
+        <h1>{{ block('title') }}</h1>
+    {% endblock %}
+    {% block body %}{% endblock %}
+</main>
 </div>
 </body>
 </html>

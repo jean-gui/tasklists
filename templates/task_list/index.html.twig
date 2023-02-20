@@ -2,20 +2,21 @@
 
 {% block title %}Task lists{% endblock %}
 
+{% block main_nav_items %}
+    <ul>
+        <li><a href="{{ path('app_task_list_new') }}" role="button">Create a new list</a></li>
+    </ul>
+{% endblock %}
+
+
 {% block body %}
     {% if task_lists|length > 0 %}
         {% for task_list in task_lists %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{ task_list.name }}</h5>
-                    <a href="{{ path('app_task_list_show', {'id': task_list.id}) }}" class="card-link">Show</a>
-                    <a href="{{ path('app_task_list_edit', {'id': task_list.id}) }}" class="card-link">Edit</a>
-                </div>
-            </div>
+            <a href="{{ path('app_task_list_show', {'id': task_list.id}) }}">
+                <article>
+                    <h5>{{ task_list.name }}</h5>
+                </article>
+            </a>
         {% endfor %}
     {% endif %}
-
-    <p>
-        <a href="{{ path('app_task_list_new') }}">Create new</a>
-    </p>
 {% endblock %}

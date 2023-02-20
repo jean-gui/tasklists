@@ -2,11 +2,10 @@
 
 {% block breadcrumbs %}
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ path('app_task_list_index') }}">Home</a></li>
-            <li class="breadcrumb-item active"><a
-                        href="{{ path('app_task_list_new') }}">New</a></li>
-        </ol>
+        <ul>
+            <li><a href="{{ path('app_task_list_index') }}">Home</a></li>
+            <li><a href="{{ path('app_task_list_new') }}">New</a></li>
+        </ul>
     </nav>
 {% endblock %}
 
