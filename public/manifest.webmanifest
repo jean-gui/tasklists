@@ -1,0 +1,15 @@
+{
+  "background_color": "white",
+  "description": "Shared todo list",
+  "display": "standalone",
+  "icons": [
+  {
+   "src": "/favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+  }
+ ],
+  "name": "Todo list manager",
+  "short_name": "Todo list",
+  "start_url": "/"
+}
