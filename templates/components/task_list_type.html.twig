@@ -8,6 +8,12 @@
         {{ form_row(form.name, {label_attr: {class: 'visually-hidden'}}) }}
     </h1>
 
+    {% set add_button %}
+        {{ form_widget(form.tasks.vars.button_add, { label: '+ Add Item' }) }}
+    {% endset %}
+
+    {{ add_button }}
+
     {% for key, taskForm in form.tasks %}
         <div class="tasks-grid grid">
             {{ form_row(taskForm.content, {label_attr: {class:'visually-hidden'}, attr: {class: taskForm.vars.data.done ? 'done' : ''}}) }}
@@ -19,7 +25,7 @@
         </div>
     {% endfor %}
 
-    {{ form_widget(form.tasks.vars.button_add, { label: '+ Add Item' }) }}
+    {{ add_button|preg_replace('/(id="[^"]+)"/', '$1_1"') }}
 
     <div class="grid">
         <button type="submit" formnovalidate>Save</button>
