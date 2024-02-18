@@ -22,7 +22,7 @@ class TaskList
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'list', targetEntity: Task::class, cascade: ['persist'], orphanRemoval: true)]
-    #[ORM\OrderBy(["done" => "ASC", "content" => "ASC", "id" => "ASC"])]
+    #[ORM\OrderBy(["done" => "ASC", "alley" => "ASC", "content" => "ASC", "id" => "ASC"])]
     #[Assert\Valid]
     private Collection $tasks;
 

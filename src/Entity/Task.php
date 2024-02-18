@@ -20,6 +20,9 @@ class Task
     #[Assert\Length(max: 1000)]
     private ?string $content = null;
 
+    #[ORM\Column(length: 1000, nullable: false)]
+    private ?string $alley = 'Other';
+
     #[ORM\Column]
     private ?bool $done = false;
 
@@ -41,6 +44,18 @@ class Task
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getAlley(): ?string
+    {
+        return $this->alley;
+    }
+
+    public function setAlley(?string $alley): static
+    {
+        $this->alley = $alley;
 
         return $this;
     }

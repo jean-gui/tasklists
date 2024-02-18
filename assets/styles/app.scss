@@ -22,12 +22,12 @@ h1 input#task_list_name {
 }
 
 .grid.tasks-grid {
-  grid-template-columns: 0.8fr 0.2fr;
+  grid-template-columns: 0.4fr 0.4fr 0.2fr;
 }
 
 @media (min-width: 992px) {
   .grid.tasks-grid {
-    grid-template-columns: 0.93fr 0.07fr;
+    grid-template-columns: 0.45fr 0.45fr 0.1fr;
   }
 }
 
