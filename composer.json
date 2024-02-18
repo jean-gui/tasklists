@@ -25,7 +25,7 @@
         "symfony/serializer": "7.0.*",
         "symfony/twig-bundle": "7.0.*",
         "symfony/ux-live-component": "^2.7",
-        "symfony/ux-turbo": "^2.7",
+        "symfony/ux-turbo": "2.x-dev",
         "symfony/validator": "7.0.*",
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "7.0.*"

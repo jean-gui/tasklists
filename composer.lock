@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f140e2af478b2975c0cd7806129810a",
+    "content-hash": "86f260014e4a50dfea22545d12304cf9",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -5609,16 +5609,16 @@
         },
         {
             "name": "symfony/ux-turbo",
-            "version": "v2.14.2",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-turbo.git",
-                "reference": "7cd466f33950aa82a2b7e1485d62d8da726a0051"
+                "reference": "8df45d2c0a11d6a14336a6c1686be841cec0c229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-turbo/zipball/7cd466f33950aa82a2b7e1485d62d8da726a0051",
-                "reference": "7cd466f33950aa82a2b7e1485d62d8da726a0051",
+                "url": "https://api.github.com/repos/symfony/ux-turbo/zipball/8df45d2c0a11d6a14336a6c1686be841cec0c229",
+                "reference": "8df45d2c0a11d6a14336a6c1686be841cec0c229",
                 "shasum": ""
             },
             "require": {
@@ -5648,6 +5648,7 @@
                 "symfony/web-profiler-bundle": "^5.4|^6.0|^7.0",
                 "symfony/webpack-encore-bundle": "^2.1.1"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "thanks": {
@@ -5685,7 +5686,7 @@
                 "turbo-stream"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-turbo/tree/v2.14.2"
+                "source": "https://github.com/symfony/ux-turbo/tree/2.x"
             },
             "funding": [
                 {
@@ -5701,7 +5702,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-07T20:26:48+00:00"
+            "time": "2024-02-14T16:18:43+00:00"
         },
         {
             "name": "symfony/ux-twig-component",
@@ -6625,7 +6626,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "symfony/ux-turbo": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
