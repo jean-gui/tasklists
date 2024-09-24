@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TaskListRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -22,7 +23,7 @@ class TaskList
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'list', targetEntity: Task::class, cascade: ['persist'], orphanRemoval: true)]
-    #[ORM\OrderBy(["done" => "ASC", "alley" => "ASC", "content" => "ASC", "id" => "ASC"])]
+    #[ORM\OrderBy(["content" => "ASC"])]
     #[Assert\Valid]
     private Collection $tasks;
 
@@ -54,6 +55,32 @@ class TaskList
     public function getTasks(): Collection
     {
         return $this->tasks;
+    }
+
+    /**
+     * @return Collection<int, Task>
+     */
+    public function getActiveTasks(): Collection
+    {
+        $criteria = Criteria::create()
+            ->andWhere((Criteria::expr()->eq('done', false)))
+            ->orderBy(['alley' => 'ASC', 'content' => 'ASC'])
+        ;
+
+        return $this->getTasks()->matching($criteria);
+    }
+
+    /**
+     * @return Collection<int, Task>
+     */
+    public function getDoneTasks(): Collection
+    {
+        $criteria = Criteria::create()
+            ->andWhere((Criteria::expr()->eq('done', true)))
+            ->orderBy(['content' => 'ASC'])
+        ;
+
+        return $this->getTasks()->matching($criteria);
     }
 
     public function addTask(Task $task): self

@@ -19,7 +19,7 @@ class TaskListTypeComponent extends AbstractController
     use ComponentWithFormTrait;
     use LiveCollectionTrait;
 
-    #[LiveProp(fieldName: 'data')]
+    #[LiveProp]
     public ?TaskList $taskList = null;
 
     protected function instantiateForm(): FormInterface

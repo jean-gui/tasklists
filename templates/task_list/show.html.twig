@@ -18,26 +18,24 @@
 {% block body %}
     <div>
         {% set alley = null %}
-        {% set done = false %}
-        {% for task in task_list.tasks %}
-            {% if task.alley != alley and not task.done %}
+        {% for task in task_list.activeTasks %}
+            {% if task.alley != alley %}
                 {% set alley = task.alley %}
                 <h2>{{ alley }}</h2>
             {% endif %}
-            {% if task.done and not done%}
-                {% set done = true %}
-                <h2>Done</h2>
-            {% endif %}
             <form action="{{ path('app_task_toggle', {id: task.id}) }}" method="post" class="task-form">
-                {% if task.done %}
-                    <button type="submit" class="secondary">
-                        <s>{{ task.content }}</s>
-                    </button>
-                {% else %}
-                    <button type="submit">
-                        {{ task.content }}
-                    </button>
-                {% endif %}
+                <button type="submit">
+                    {{ task.content }}
+                </button>
+            </form>
+        {% endfor %}
+
+        <h2>Done</h2>
+        {% for task in task_list.doneTasks %}
+            <form action="{{ path('app_task_toggle', {id: task.id}) }}" method="post" class="task-form">
+                <button type="submit" class="secondary">
+                    <s>{{ task.content }}</s>
+                </button>
             </form>
         {% endfor %}
     </div>
