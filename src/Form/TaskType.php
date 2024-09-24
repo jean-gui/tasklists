@@ -13,7 +13,7 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('content', null, ['attr' => ['placeholder' => 'Content']])
-            ->add('alley', null, ['attr' => ['placeholder' => 'Alley']])
+            ->add('alley', null, ['required' => false, 'attr' => ['placeholder' => 'Alley']])
         ;
     }
 

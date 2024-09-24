@@ -20,10 +20,10 @@ class Task
     #[Assert\Length(max: 1000)]
     private ?string $content = null;
 
-    #[ORM\Column(length: 1000, nullable: false)]
-    private ?string $alley = 'Other';
+    #[ORM\Column(length: 1000, nullable: false, options: ['default' => 'Autre'])]
+    private ?string $alley = 'Autre';
 
-    #[ORM\Column]
+    #[ORM\Column(options: ['default' => false])]
     private ?bool $done = false;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
@@ -55,7 +55,9 @@ class Task
 
     public function setAlley(?string $alley): static
     {
-        $this->alley = $alley;
+        if ($alley) {
+            $this->alley = $alley;
+        }
 
         return $this;
     }
